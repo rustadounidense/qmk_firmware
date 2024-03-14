@@ -38,9 +38,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
   ),
   [6] = LAYOUT_split_3x6_3(
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,              KC_AUDIO_VOL_UP,        KC_NO,            KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,      KC_BRIGHTNESS_UP, KC_TRANSPARENT, KC_TRANSPARENT, 
-    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_NO,              KC_AUDIO_MUTE,          KC_NO,            KC_TRANSPARENT, KC_TRANSPARENT, 
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_NO,              KC_AUDIO_VOL_UP,        KC_NO,            KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,      KC_BRIGHTNESS_UP, KC_NO, KC_NO,
+    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_NO,              KC_AUDIO_MUTE,          KC_NO,            KC_NO, KC_NO,
                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT,     KC_TRANSPARENT
   )
 };
@@ -61,15 +61,14 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
-    for (uint8_t i = led_min; i < led_max; i++) {
-        switch(get_highest_layer(layer_state|default_layer_state)) {
-            case 1:
-                rgb_matrix_set_color(i, RGB_YELLOW);
-                break;
-            default:
-                break;
-        }
+bool rgb_matrix_indicators_user(void) {
+    uint8_t current_layer = get_highest_layer(layer_state);
+    switch (current_layer) {
+        case 1:
+            rgb_matrix_set_color_all(RGB_GREEN);
+            break;
+        default:
+            break;
     }
     return false;
 }
