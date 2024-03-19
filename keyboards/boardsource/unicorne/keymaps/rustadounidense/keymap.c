@@ -15,32 +15,32 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [2] = LAYOUT_split_3x6_3(
     LCTL(KC_6),         LCTL(KC_1),         LCTL(KC_2),         LCTL(KC_3),         LCTL(KC_4),         LCTL(KC_5),             KC_LBRC,            KC_7,               KC_8,               KC_9,               KC_EQUAL,       KC_RBRC,
-    KC_CAPS,            OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),      OSM(MOD_LSFT),      KC_NO,                  KC_LPRN,            KC_4,               KC_5,               KC_6,               KC_MINUS,       KC_RPRN,
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_1,               KC_2,               KC_3,               KC_SLASH,       KC_NO,
+    KC_CAPS,            OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),      OSM(MOD_LSFT),      KC_NO,                  KC_LPRN,            KC_1,               KC_2,               KC_3,               KC_MINUS,       KC_RPRN,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_4,               KC_5,               KC_6,               KC_SLASH,       KC_NO,
                                                                 KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     LT(4,KC_0),         KC_DOT
   ),
   [3] = LAYOUT_split_3x6_3(
-    KC_NO,              KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_LCBR,        KC_AMPR,        KC_ASTR,        KC_LPRN,        KC_PLUS,        KC_RCBR,
-    KC_NO,              KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_LEFT_SHIFT,  KC_NO,                                          KC_LPRN,        KC_DLR,         KC_PERC,        KC_CIRC,        KC_UNDS,        KC_RPRN,
-    KC_NO,              KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_EXLM,        KC_AT,          KC_HASH,        KC_QUES,        KC_NO,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_LCBR,            KC_AMPR,            KC_ASTR,            KC_LPRN,            KC_PLUS,        KC_RCBR,
+    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,       KC_LEFT_SHIFT,      KC_NO,                  KC_LPRN,            KC_DLR,             KC_PERC,            KC_CIRC,            KC_UNDS,        KC_RPRN,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_EXLM,            KC_AT,              KC_HASH,            KC_QUES,        KC_NO,
+                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
   ),
   [4] = LAYOUT_split_3x6_3(
-    KC_NO,              KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_HOME,        LGUI(KC_LEFT),  KC_UP,          LGUI(KC_RIGHT), KC_PAGE_UP,     KC_NO,
-    KC_NO,              KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_LEFT_SHIFT,  KC_NO,                                          KC_END,         KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_PGDN,        KC_NO,
-    KC_NO,              KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          LGUI(KC_LBRC),  LCTL(KC_UP),    LGUI(KC_RBRC),  KC_NO,          KC_NO,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_HOME,            LGUI(KC_LEFT),      KC_UP,              LGUI(KC_RIGHT),     KC_PAGE_UP,     KC_NO,
+    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,       KC_LEFT_SHIFT,      KC_NO,                  KC_END,             KC_LEFT,            KC_DOWN,            KC_RIGHT,           KC_PGDN,        KC_NO,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              LGUI(KC_LBRC),      LCTL(KC_UP),        LGUI(KC_RBRC),      KC_NO,          KC_NO,
+                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
   ),
   [5] = LAYOUT_split_3x6_3(
-    KC_NO,              KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_F7,          KC_F8,          KC_F9,          KC_F10,         KC_NO,
-    KC_NO,              KC_LEFT_GUI,    KC_LEFT_ALT,    KC_LEFT_CTRL,   KC_LEFT_SHIFT,  KC_NO,                                          KC_NO,          KC_F4,          KC_F5,          KC_F6,          KC_F11,         KC_NO,
-    KC_NO,              KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_F1,          KC_F2,          KC_F3,          KC_F12,         KC_NO,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_F7,              KC_F8,              KC_F9,              KC_F10,         KC_NO,
+    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,       KC_LEFT_SHIFT,      KC_NO,                  KC_NO,              KC_F1,              KC_F2,              KC_F3,              KC_F11,         KC_NO,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_F4,              KC_F5,              KC_F6,              KC_F12,         KC_NO,
+                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
   ),
   [6] = LAYOUT_split_3x6_3(
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_NO,              KC_AUDIO_VOL_UP,        KC_NO,            KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,      KC_BRIGHTNESS_UP, KC_NO, KC_NO,
-    KC_NO, KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_NO,              KC_AUDIO_MUTE,          KC_NO,            KC_NO, KC_NO,
+    KC_NO,              KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_NO,              KC_AUDIO_VOL_UP,        KC_NO,            KC_NO, KC_NO,
+    KC_NO,              KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,      KC_BRIGHTNESS_UP, KC_NO, KC_NO,
+    KC_NO,              KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_NO,              KC_AUDIO_MUTE,          KC_NO,            KC_NO, KC_NO,
                                                     KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT,     KC_TRANSPARENT
   )
 };
