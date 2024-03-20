@@ -21,8 +21,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   [3] = LAYOUT_split_3x6_3(
     KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_LCBR,            KC_AMPR,            KC_ASTR,            KC_LPRN,            KC_PLUS,        KC_RCBR,
-    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,       KC_LEFT_SHIFT,      KC_NO,                  KC_LPRN,            KC_DLR,             KC_PERC,            KC_CIRC,            KC_UNDS,        KC_RPRN,
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_EXLM,            KC_AT,              KC_HASH,            KC_QUES,        KC_NO,
+    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,       KC_LEFT_SHIFT,      KC_NO,                  KC_LPRN,            KC_EXLM,            KC_AT,              KC_HASH,            KC_UNDS,        KC_RPRN,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_DLR,             KC_PERC,            KC_CIRC,            KC_QUES,        KC_NO,
                                                                 KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
   ),
   [4] = LAYOUT_split_3x6_3(
@@ -38,10 +38,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                                                 KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
   ),
   [6] = LAYOUT_split_3x6_3(
-    KC_NO,              KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_NO,              KC_AUDIO_VOL_UP,        KC_NO,            KC_NO, KC_NO,
-    KC_NO,              KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,      KC_BRIGHTNESS_UP, KC_NO, KC_NO,
-    KC_NO,              KC_NO, KC_NO, KC_NO, KC_NO, KC_NO,                                 KC_NO, KC_NO,              KC_AUDIO_MUTE,          KC_NO,            KC_NO, KC_NO,
-                                                    KC_TRANSPARENT, KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_TRANSPARENT, KC_TRANSPARENT,     KC_TRANSPARENT
+    QK_BOOT,            KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,              KC_AUDIO_VOL_UP,    KC_NO,              KC_NO,          QK_BOOT,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,  KC_BRIGHTNESS_UP,   KC_NO,          KC_NO,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,              KC_AUDIO_MUTE,      KC_NO,              KC_NO,          KC_NO,
+                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
   )
 };
 
@@ -53,7 +53,6 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
-            return 145;
         case MT(MOD_RSFT, KC_J):
             return 145;
         default:
@@ -72,3 +71,15 @@ bool rgb_matrix_indicators_user(void) {
     }
     return false;
 }
+
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case MT(MOD_LSFT, KC_F):
+            // Immediately select the hold action when another key is tapped.
+            return true;
+        default:
+            // Do not select the hold action when another key is tapped.
+            return false;
+    }
+}
+
