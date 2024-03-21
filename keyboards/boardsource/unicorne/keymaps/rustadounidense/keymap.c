@@ -2,9 +2,9 @@
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_split_3x6_3(
-    KC_GRAVE,           KC_Q,               KC_W,               KC_E,               KC_R,               KC_T,                   KC_Y,               KC_U,               KC_I,               KC_O,               KC_P,           KC_BSLS,
-    CW_TOGG,            MT(MOD_LGUI, KC_A), MT(MOD_LALT, KC_S), MT(MOD_LCTL, KC_D), MT(MOD_LSFT, KC_F), KC_G,                   KC_H,               MT(MOD_RSFT, KC_J), MT(MOD_RCTL, KC_K), MT(MOD_RALT, KC_L), MT(MOD_RGUI,    KC_SCLN),KC_QUOTE,
-    KC_NO,              KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,                   KC_N,               KC_M,               KC_COMMA,           KC_DOT,             KC_SLASH,       TO(1),
+    KC_GRAVE,           KC_Q,               KC_W,               KC_E,               KC_R,               KC_T,                   KC_Y,               KC_U,               KC_I,               KC_O,               KC_P,                   KC_BSLS,
+    CW_TOGG,            MT(MOD_LGUI, KC_A), MT(MOD_LALT, KC_S), MT(MOD_LCTL, KC_D), MT(MOD_LSFT, KC_F), KC_G,                   KC_H,               MT(MOD_RSFT, KC_J), MT(MOD_RCTL, KC_K), MT(MOD_RALT, KC_L), MT(MOD_RGUI, KC_SCLN),  KC_QUOTE,
+    KC_NO,              KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,                   KC_N,               KC_M,               KC_COMMA,           KC_DOT,             KC_SLASH,               TO(1),
                                                                 LT(5,KC_ESCAPE),    LT(2,KC_SPACE),     LT(3,KC_TAB),           KC_ENTER,           LT(4,KC_BSPC),      LT(6,KC_DELETE)
   ),
   [1] = LAYOUT_split_3x6_3(
@@ -55,6 +55,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LSFT, KC_F):
         case MT(MOD_RSFT, KC_J):
             return 145;
+        case MT(MOD_LGUI, KC_A):
+        case MT(MOD_RGUI, KC_SCLN):
+            return 200;
         default:
             return TAPPING_TERM;
     }
