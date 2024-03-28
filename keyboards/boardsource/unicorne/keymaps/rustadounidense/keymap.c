@@ -1,49 +1,81 @@
 #include QMK_KEYBOARD_H
 
+enum layers {
+  _BASE,
+  _RU,
+  _NUM,
+  _SYM,
+  _NAV,
+  _FUN,
+  _SYS,
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-  [0] = LAYOUT_split_3x6_3(
-    KC_GRAVE,           KC_Q,               KC_W,               KC_E,               KC_R,               KC_T,                   KC_Y,               KC_U,               KC_I,               KC_O,               KC_P,                   KC_BSLS,
-    CW_TOGG,            MT(MOD_LGUI, KC_A), MT(MOD_LALT, KC_S), MT(MOD_LCTL, KC_D), MT(MOD_LSFT, KC_F), KC_G,                   KC_H,               MT(MOD_RSFT, KC_J), MT(MOD_RCTL, KC_K), MT(MOD_RALT, KC_L), MT(MOD_RGUI, KC_SCLN),  KC_QUOTE,
-    KC_NO,              KC_Z,               KC_X,               KC_C,               KC_V,               KC_B,                   KC_N,               KC_M,               KC_COMMA,           KC_DOT,             KC_SLASH,               TO(1),
-                                                                LT(5,KC_ESCAPE),    LT(2,KC_SPACE),     LT(3,KC_TAB),           KC_ENTER,           LT(4,KC_BSPC),      LT(6,KC_DELETE)
+  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  [_BASE] = LAYOUT_split_3x6_3(
+    LGUI(KC_TAB),       KC_Q,               KC_W,               KC_E,                   KC_R,               KC_T,                   KC_Y,       KC_U,               KC_I,               KC_O,               KC_P,                   LGUI(KC_GRAVE),
+    LGUI(KC_SPACE),     MT(MOD_LGUI,KC_A),  MT(MOD_LALT,KC_S),  MT(MOD_LCTL,KC_D),      MT(MOD_LSFT,KC_F),  KC_G,                   KC_H,       MT(MOD_RSFT,KC_J),  MT(MOD_RCTL,KC_K),  MT(MOD_RALT,KC_L),  MT(MOD_RGUI, KC_QUOTE), OSM(MOD_HYPR),
+    KC_NO,              KC_Z,               KC_X,               KC_C,                   KC_V,               KC_B,                   KC_N,       KC_M,               KC_COMMA,           KC_DOT,             KC_SCLN,                TO(_RU),
+                                                                LT(_FUN,KC_ESCAPE),     LT(_NUM,KC_SPACE),  LT(_SYM, KC_TAB),       KC_ENTER,   LT(_NAV,KC_BSPC),   LT(_SYS,KC_DELETE)
   ),
-  [1] = LAYOUT_split_3x6_3(
-    KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_LBRC,
-    KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,
-    TO(0),              KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_RBRC,
-                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
+  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  [_RU] = LAYOUT_split_3x6_3(
+    KC_TRNS,            KC_TRNS,            KC_TRNS,            KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,    KC_TRNS,            KC_TRNS,            KC_TRNS,            KC_TRNS,                KC_LBRC,
+    KC_TRNS,            KC_TRNS,            KC_TRNS,            KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,    KC_TRNS,            KC_TRNS,            KC_TRNS,            KC_SCLN,                KC_QUOTE,
+    TO(_BASE),          KC_TRNS,            KC_TRNS,            KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,    KC_TRNS,            KC_TRNS,            KC_TRNS,            KC_SLASH,               KC_RBRC,
+                                                                KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,    KC_TRNS,            KC_TRNS
   ),
-  [2] = LAYOUT_split_3x6_3(
-    LCTL(KC_6),         LCTL(KC_1),         LCTL(KC_2),         LCTL(KC_3),         LCTL(KC_4),         LCTL(KC_5),             KC_LBRC,            KC_7,               KC_8,               KC_9,               KC_EQUAL,               KC_RBRC,
-    KC_CAPS,            OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),      OSM(MOD_LSFT),      KC_NO,                  KC_LPRN,            KC_1,               KC_2,               KC_3,               KC_MINUS,               KC_RPRN,
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_4,               KC_5,               KC_6,               KC_SLASH,               KC_NO,
-                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     LT(4,KC_0),         KC_DOT
+  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  [_NUM] = LAYOUT_split_3x6_3(
+    LCTL(KC_6),         LCTL(KC_1),         LCTL(KC_2),         LCTL(KC_3),             LCTL(KC_4),         LCTL(KC_5),             KC_NO,      KC_7,               KC_8,               KC_9,               KC_MINUS,               KC_NO,
+    KC_CAPS,            OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),          OSM(MOD_LSFT),      KC_NO,                  KC_DOT,     KC_1,               KC_2,               KC_3,               KC_EQUAL,               KC_NO,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,      KC_4,               KC_5,               KC_6,               KC_SLASH,               KC_NO,
+                                                                KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,    LT(_NAV,KC_0),      KC_DOT
   ),
-  [3] = LAYOUT_split_3x6_3(
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_LCBR,            KC_AMPR,            KC_ASTR,            KC_LPRN,            KC_PLUS,                KC_RCBR,
-    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,       KC_LEFT_SHIFT,      KC_NO,                  KC_LPRN,            KC_EXLM,            KC_AT,              KC_HASH,            KC_UNDS,                KC_RPRN,
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_DLR,             KC_PERC,            KC_CIRC,            KC_QUES,                KC_NO,
-                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
+  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  [_SYM] = LAYOUT_split_3x6_3(
+    LCTL(KC_6),         LCTL(KC_1),         LCTL(KC_2),         LCTL(KC_3),             LCTL(KC_4),         LCTL(KC_5),             KC_NO,      KC_GRAVE,           KC_LBRC,            KC_RBRC,            KC_MINUS,                KC_NO,
+    CW_TOGG,            OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),          OSM(MOD_LSFT),      KC_NO,                  KC_NO,      KC_EXLM,            KC_LPRN,            KC_RPRN,            KC_EQUAL,                KC_NO,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,      KC_BSLS,            KC_LABK,            KC_RABK,            KC_SLASH,                KC_NO,
+                                                                KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,    KC_TRNS,            KC_DOT
   ),
-  [4] = LAYOUT_split_3x6_3(
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_HOME,            LGUI(KC_LEFT),      KC_UP,              LGUI(KC_RIGHT),     KC_PAGE_UP,             KC_NO,
-    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,       KC_LEFT_SHIFT,      KC_NO,                  KC_END,             KC_LEFT,            KC_DOWN,            KC_RIGHT,           KC_PGDN,                KC_NO,
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              LGUI(KC_LBRC),      LCTL(KC_UP),        LGUI(KC_RBRC),      KC_NO,                  KC_NO,
-                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
+  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  [_NAV] = LAYOUT_split_3x6_3(
+    LCTL(KC_6),         LCTL(KC_1),         LCTL(KC_2),         LCTL(KC_3),             LCTL(KC_4),         LCTL(KC_5),             KC_HOME,    LGUI(KC_LEFT),      KC_UP,              LGUI(KC_RIGHT),     KC_PAGE_UP,             KC_NO,
+    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,           KC_LEFT_SHIFT,      KC_NO,                  KC_END,     KC_LEFT,            KC_DOWN,            KC_RIGHT,           KC_PGDN,                KC_NO,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,      LGUI(KC_LBRC),      LCTL(KC_UP),        LGUI(KC_RBRC),      KC_NO,                  KC_NO,
+                                                                KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,    KC_TRNS,            KC_TRNS
   ),
-  [5] = LAYOUT_split_3x6_3(
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_F7,              KC_F8,              KC_F9,              KC_F10,                 KC_NO,
-    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,       KC_LEFT_SHIFT,      KC_NO,                  KC_NO,              KC_F1,              KC_F2,              KC_F3,              KC_F11,                 KC_NO,
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_F4,              KC_F5,              KC_F6,              KC_F12,                 KC_NO,
-                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
+  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  [_FUN] = LAYOUT_split_3x6_3(
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,      KC_F7,              KC_F8,              KC_F9,              KC_F10,                 KC_NO,
+    KC_NO,              KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,           KC_LEFT_SHIFT,      KC_NO,                  KC_NO,      KC_F1,              KC_F2,              KC_F3,              KC_F11,                 KC_NO,
+    SH_TOGG,            KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,      KC_F4,              KC_F5,              KC_F6,              KC_F12,                 KC_NO,
+                                                                KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,    KC_TRNS,            KC_TRNS
   ),
-  [6] = LAYOUT_split_3x6_3(
-    QK_BOOT,            KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,              KC_AUDIO_VOL_UP,    KC_NO,              KC_NO,                  QK_BOOT,
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,  KC_BRIGHTNESS_UP,   KC_NO,                  KC_NO,
-    KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,              KC_AUDIO_MUTE,      KC_NO,              KC_NO,                  KC_NO,
-                                                                KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT,         KC_TRANSPARENT,     KC_TRANSPARENT,     KC_TRANSPARENT
+  // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+  [_SYS] = LAYOUT_split_3x6_3(
+    QK_BOOT,            KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,      KC_NO,              KC_AUDIO_VOL_UP,    KC_NO,              KC_NO,                  QK_BOOT,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,      KC_BRIGHTNESS_DOWN, KC_AUDIO_VOL_DOWN,  KC_BRIGHTNESS_UP,   KC_NO,                  KC_NO,
+    KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,      KC_NO,              KC_AUDIO_MUTE,      KC_NO,              KC_NO,                  SH_TOGG ,
+                                                                KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,    KC_TRNS,            KC_TRNS
   )
 };
+
+#ifdef SWAP_HANDS_ENABLE
+const keypos_t hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
+	// Left
+	{{0, 4}, {1, 4}, {2, 4}, {3, 4}, {4, 4}, {5, 4}},
+	{{0, 5}, {1, 5}, {2, 5}, {3, 5}, {4, 5}, {5, 5}},
+	{{0, 6}, {1, 6}, {2, 6}, {3, 6}, {4, 6}, {5, 6}},
+	{{0, 7}, {1, 7}, {2, 7}, {3, 7}, {4, 7}, {5, 7}},
+	// Right
+	{{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}},
+	{{0, 1}, {1, 1}, {2, 1}, {3, 1}, {4, 1}, {5, 1}},
+	{{0, 2}, {1, 2}, {2, 2}, {3, 2}, {4, 2}, {5, 2}},
+	{{0, 3}, {1, 3}, {2, 3}, {3, 3}, {4, 3}, {5, 3}}
+};
+#endif
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
