@@ -28,8 +28,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [_NUM] = LAYOUT_split_3x6_3(
     KC_TRNS,    LCTL(KC_1),         LCTL(KC_2),         LCTL(KC_3),             LCTL(KC_4),         LCTL(KC_5),       /**/  KC_GRAVE,               KC_7,               KC_8,                 KC_9,               KC_EQUAL,               KC_TRNS,
-    KC_TRNS,    OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),          OSM(MOD_LSFT),      KC_NO,                  KC_PLUS,                KC_1,               KC_2,                 KC_3,               KC_MINUS,               KC_TRNS,
-    KC_TRNS,    KC_NO,              KC_NO,              OSM(MOD_HYPR),          CW_TOGG,            KC_CAPS,                KC_BSLS,                KC_4,               KC_5,                 KC_6,               KC_SLASH,               KC_TRNS,
+    KC_TRNS,    OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),          OSM(MOD_LSFT),      CW_TOGG,                KC_PLUS,                KC_1,               KC_2,                 KC_3,               KC_MINUS,               KC_TRNS,
+    KC_TRNS,    KC_NO,              KC_NO,              OSM(MOD_HYPR),          KC_NO,              KC_CAPS,                KC_BSLS,                KC_4,               KC_5,                 KC_6,               KC_SLASH,               KC_TRNS,
                                                         KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_DOT,                 LT(_NAV,KC_0),      KC_TRNS
   ),
   // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -41,15 +41,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 //  ),
   // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [_NAV] = LAYOUT_split_3x6_3(
-    KC_BRIU,    KC_LPRN,            KC_RPRN,            KC_LCBR,                KC_RCBR,            KC_NO,            /**/  KC_HOME,                LGUI(KC_LEFT),      KC_UP,                LGUI(KC_RIGHT),     KC_PAGE_UP,             KC_VOLU,
-    KC_BRID,    KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,           KC_LEFT_SHIFT,      KC_NO,                  KC_END,                 KC_LEFT,            KC_DOWN,              KC_RIGHT,           KC_PGDN,                KC_VOLD,
+    KC_TRNS,    KC_LPRN,            KC_RPRN,            KC_LCBR,                KC_RCBR,            KC_NO,            /**/  KC_HOME,                LGUI(KC_LEFT),      KC_UP,                LGUI(KC_RIGHT),     KC_PAGE_UP,             KC_TRNS,
+    KC_TRNS,    KC_LGUI,            KC_LOPT,            KC_LCTL,                KC_LSFT,            KC_NO,                  KC_END,                 KC_LEFT,            KC_DOWN,              KC_RIGHT,           KC_PGDN,                KC_TRNS,
     KC_NO,      KC_LBRC,            KC_RBRC,            KC_LABK,                KC_RABK,            KC_NO,                  KC_NO,                  LGUI(KC_LBRC),      RCTL(KC_UP),          LGUI(KC_RBRC),      KC_NO,                  KC_NO,
                                                         KC_TRNS,                KC_SPACE,           KC_TAB,                 KC_TRNS,                KC_TRNS,            KC_TRNS
   ),
   // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [_FUN] = LAYOUT_split_3x6_3(
     KC_NO,      KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,            /**/  KC_NO,                  KC_F7,              KC_F8,                KC_F9,              KC_F10,                 KC_NO,
-    KC_NO,      KC_LEFT_GUI,        KC_LEFT_ALT,        KC_LEFT_CTRL,           KC_LEFT_SHIFT,      KC_NO,                  KC_NO,                  KC_F1,              KC_F2,                KC_F3,              KC_F11,                 KC_NO,
+    KC_NO,      KC_LGUI,            KC_LOPT,            KC_LCTL,                KC_LSFT,            KC_NO,                  KC_NO,                  KC_F1,              KC_F2,                KC_F3,              KC_F11,                 KC_NO,
     QK_BOOT,    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,                  KC_F4,              KC_F5,                KC_F6,              KC_F12,                 QK_BOOT,
                                                         KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,                KC_TRNS,            KC_TRNS
   )
