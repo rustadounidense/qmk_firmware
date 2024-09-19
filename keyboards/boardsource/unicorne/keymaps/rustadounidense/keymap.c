@@ -55,8 +55,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [_SYS] = LAYOUT_split_3x6_3(
-    KC_CAPS,    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,            /**/  KC_NO,                  KC_NO,              KC_BRIGHTNESS_DOWN, KC_BRIGHTNESS_UP,   KC_NO,                  KC_NO,
-    CW_TOGG,    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,                  KC_NO,              KC_AUDIO_VOL_DOWN,  KC_AUDIO_VOL_UP,    KC_NO,                  KC_NO,
+    KC_NO,      KC_CAPS,            KC_NO,              KC_NO,                  KC_NO,              KC_NO,            /**/  KC_NO,                  KC_NO,              KC_BRIGHTNESS_DOWN, KC_BRIGHTNESS_UP,   KC_NO,                  KC_NO,
+    KC_NO,      CW_TOGG,            KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,                  KC_NO,              KC_AUDIO_VOL_DOWN,  KC_AUDIO_VOL_UP,    KC_NO,                  KC_NO,
     KC_NO,      KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,                  KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,
                                                         KC_NO,                  KC_NO,              QK_BOOT,                QK_BOOT,                KC_NO,              KC_NO
   )
