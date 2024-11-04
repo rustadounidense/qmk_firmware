@@ -22,21 +22,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RU] = LAYOUT_split_3x5_3(
     KC_TRNS,            KC_TRNS,            KC_TRNS,                KC_TRNS,            KC_TRNS,          /**/  KC_TRNS,                KC_TRNS,            KC_TRNS,              KC_TRNS,            KC_TRNS,
     KC_TRNS,            KC_TRNS,            KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,                KC_TRNS,            KC_TRNS,              KC_TRNS,            MT(MOD_RGUI,KC_SCLN),
-    KC_TRNS,            KC_TRNS,            KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,                KC_TRNS,            KC_TRNS,              KC_TRNS,            KC_SLASH,
+    KC_Z,               KC_X,               KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,                KC_TRNS,            KC_TRNS,              KC_TRNS,            KC_SLASH,
                                             KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,                KC_TRNS,            KC_TRNS
   ),
   // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [_NUM] = LAYOUT_split_3x5_3(
     LCTL(KC_1),         LCTL(KC_2),         LCTL(KC_3),             LCTL(KC_4),         LCTL(KC_5),       /**/  KC_GRAVE,               KC_7,               KC_8,                 KC_9,               KC_EQUAL,
-    OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),          OSM(MOD_LSFT),      LCTL(KC_6),             KC_0,                   KC_1,               KC_2,                 KC_3,               KC_MINUS,
-    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              MO(_SYM),               KC_DOT,                 KC_4,               KC_5,                 KC_6,               KC_SLASH,
-                                            KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,                KC_TRNS,            KC_TRNS
+    OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),          OSM(MOD_LSFT),      LCTL(KC_6),             KC_DOT,                 KC_1,               KC_2,                 KC_3,               KC_MINUS,
+    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              MO(_SYM),               KC_BSLS,                KC_4,               KC_5,                 KC_6,               KC_SLASH,
+                                            KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,                LT(_NAV,KC_0),      KC_TRNS
   ),
   // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [_SYM] = LAYOUT_split_3x5_3(
-    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,            /**/  KC_GRAVE,               KC_NO,              KC_LBRC,            KC_RBRC,              KC_EQUAL,
-    OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),          OSM(MOD_LSFT),      KC_NO,                  KC_DOT,                 KC_LCBR,            KC_LPRN,            KC_RPRN,              KC_RCBR,
-    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_BSLS,                KC_NO,              KC_LT,              KC_GT,                KC_SLASH,
+    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,            /**/  KC_NO,                  KC_NO,              KC_LBRC,            KC_RBRC,              KC_NO,
+    OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),          OSM(MOD_LSFT),      KC_NO,                  KC_NO,                  KC_LPRN,            KC_RPRN,            KC_LCBR,              KC_RCBR,
+    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,                  KC_NO,              KC_LT,              KC_GT,                KC_NO,
                                             KC_TRNS,                KC_TRNS,            KC_TRNS,                KC_TRNS,                KC_TRNS,            KC_TRNS
   ),
   // ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -57,12 +57,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_SYS] = LAYOUT_split_3x5_3(
     KC_CAPS,            KC_NO,              KC_NO,                  KC_NO,              KC_NO,            /**/  KC_NO,                  KC_NO,              KC_BRID,              KC_BRIU,            KC_NO,
     CW_TOGG,            KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,                  KC_NO,              KC_VOLD,              KC_VOLU,            KC_NO,
-    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,                  KC_NO,              KC_NO,                KC_NO,              KC_NO,
+    KC_NO,              KC_NO,              KC_NO,                  KC_NO,              KC_NO,                  KC_NO,                  KC_NO,              RGB_VAD,              RGB_VAI,            RGB_TOG,
                                             KC_NO,                  KC_NO,              QK_BOOT,                QK_BOOT,                KC_NO,              KC_NO
   )
 };
 
 
+//const uint16_t PROGMEM combo0[] = { KC_Z, KC_X, COMBO_END};
+//const uint16_t PROGMEM combo1[] = { KC_SCLN, KC_DOT, COMBO_END};
+//combo_t key_combos[] = {
+//    COMBO(combo0, TO(_EN)),
+//    COMBO(combo1, TO(_RU)),
+//};
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -91,3 +97,15 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
       return false;
   }
 }
+
+//bool rgb_matrix_indicators_user(void) {
+//    uint8_t current_layer = get_highest_layer(layer_state);
+//    switch (current_layer) {
+//        case _RU:
+//            rgb_matrix_set_color_all(RGB_GREEN);
+//            break;
+//        default:
+//            break;
+//    }
+//    return false;
+//}

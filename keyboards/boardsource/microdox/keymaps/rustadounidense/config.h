@@ -1,16 +1,24 @@
 #pragma once
 
+//#undef OLED_ENABLE
+//#undef ENCODER_ENABLE
+
 #define TAPPING_TERM 175
 #define TAPPING_TERM_PER_KEY
 
 #define PERMISSIVE_HOLD
 #define PERMISSIVE_HOLD_PER_KEY
 
+#define ONESHOT_TIMEOUT 3000
+
+//#define COMBO_TERM 40
+
 // no autorepeat on mod-taps
 //#define QUICK_TAP_TERM 0
 
-#define ONESHOT_TIMEOUT 3000
-
+//#undef RGBLIGHT_DEFAULT_HUE
+//#define RGBLIGHT_DEFAULT_HUE 0
+//
 //#undef RGB_MATRIX_DEFAULT_MODE
 //#define RGB_MATRIX_DEFAULT_MODE RGB_MATRIX_SOLID_COLOR
 //
