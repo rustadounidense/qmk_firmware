@@ -27,16 +27,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [_NUM] = LAYOUT_split_3x6_3(
-    LCTL(KC_6),   LCTL(KC_1),         LCTL(KC_2),         LCTL(KC_3),         LCTL(KC_4),         LCTL(KC_5),       /**/  KC_EQUAL,               KC_7,                 KC_8,                 KC_9,               KC_ASTR,              KC_SLASH,
-    OSM(MOD_HYPR),OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),      OSM(MOD_LSFT),      KC_NO,                  KC_0,                   KC_1,                 KC_2,                 KC_3,               KC_PLUS,              KC_MINUS,
-    KC_NO,        KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_COMMA,               KC_4,                 KC_5,                 KC_6,               KC_DOT,               KC_UNDS,
-                                                          KC_NO,              KC_NO,              KC_NO,                  KC_TRNS,                KC_TRNS,              KC_TAB
+    LCTL(KC_6),   LCTL(KC_1),         LCTL(KC_2),         LCTL(KC_3),         LCTL(KC_4),         LCTL(KC_5),       /**/  KC_COLN,                KC_7,                 KC_8,                 KC_9,               KC_ASTR,              KC_SLASH,  
+    OSM(MOD_HYPR),OSM(MOD_LGUI),      OSM(MOD_LALT),      OSM(MOD_LCTL),      OSM(MOD_LSFT),      KC_NO,                  KC_DOT,                 KC_1,                 KC_2,                 KC_3,               KC_PLUS,              KC_MINUS,
+    KC_NO,        KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_COMMA,               KC_4,                 KC_5,                 KC_6,               KC_EQUAL,             KC_UNDS,
+                                                          KC_NO,              KC_NO,              KC_NO,                  KC_0,                   KC_TRNS,              KC_TAB
   ),
   // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [_SYM] = LAYOUT_split_3x6_3(
-    KC_TILD,      KC_CIRC,            KC_AMPR,            KC_QUES,            KC_BSLS,            KC_PIPE,          /**/  KC_EQUAL,               KC_COLN,              KC_LCBR,              KC_RCBR,            KC_ASTR,              KC_SLASH,
-    KC_NO,        KC_EXLM,            KC_AT,              KC_HASH,            KC_DLR,             KC_PERC,                KC_LABK,                KC_RABK,              KC_LPRN,              KC_RPRN,            KC_PLUS,              KC_MINUS,
-    KC_NO,        KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_QUES,                KC_EXLM,              KC_LBRC,              KC_RBRC,            KC_DOT,               KC_UNDS,
+    KC_TILD,      KC_CIRC,            KC_AMPR,            KC_PERC,            KC_QUES,            KC_PIPE,          /**/  KC_COLN,                KC_QUES,              KC_LCBR,              KC_RCBR,            KC_ASTR,              KC_SLASH, 
+    KC_NO,        KC_DLR,             KC_HASH,            KC_AT,              KC_EXLM,            KC_BSLS,                KC_DOT,                 KC_EXLM,              KC_LPRN,              KC_RPRN,            KC_PLUS,              KC_MINUS,
+    KC_NO,        KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_LABK,                KC_RABK,              KC_LBRC,              KC_RBRC,            KC_EQUAL,             KC_UNDS,
                                                           KC_TRNS,            KC_TRNS,            KC_TRNS,                KC_TRNS,                KC_TRNS,              KC_TRNS
   ),
   // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
