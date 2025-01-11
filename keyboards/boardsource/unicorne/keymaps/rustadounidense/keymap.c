@@ -57,25 +57,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_KBD] = LAYOUT_split_3x6_3(
     KC_NO,        KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,            /**/  KC_NO,                  KC_NO,                KC_BRID,              KC_BRIU,            KC_NO,                KC_NO,
     KC_NO,        KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,                  KC_NO,                KC_VOLD,              KC_VOLU,            KC_NO,                KC_NO,
-    KC_NO,        KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,                  KC_NO,                RGB_VAD,              RGB_VAI,            RGB_TOG,              KC_NO,
+    KC_NO,        KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,                  KC_NO,                RM_VALD,              RM_VALU,            RM_TOGG,              KC_NO,
                                                           KC_NO,              KC_NO,              QK_BOOT,                QK_BOOT,                KC_NO,                KC_NO
   )
 };
-
-//#ifdef SWAP_HANDS_ENABLE
-//const keypos_t hand_swap_config[MATRIX_ROWS][MATRIX_COLS] = {
-//	// Left
-//	{{0, 4}, {1, 4}, {2, 4}, {3, 4}, {4, 4}, {5, 4}},
-//	{{0, 5}, {1, 5}, {2, 5}, {3, 5}, {4, 5}, {5, 5}},
-//	{{0, 6}, {1, 6}, {2, 6}, {3, 6}, {4, 6}, {5, 6}},
-//	{{0, 7}, {1, 7}, {2, 7}, {3, 7}, {4, 7}, {5, 7}},
-//	// Right
-//	{{0, 0}, {1, 0}, {2, 0}, {3, 0}, {4, 0}, {5, 0}},
-//	{{0, 1}, {1, 1}, {2, 1}, {3, 1}, {4, 1}, {5, 1}},
-//	{{0, 2}, {1, 2}, {2, 2}, {3, 2}, {4, 2}, {5, 2}},
-//	{{0, 3}, {1, 3}, {2, 3}, {3, 3}, {4, 3}, {5, 3}}
-//};
-//#endif
 
 #if defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
@@ -95,18 +80,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-bool rgb_matrix_indicators_user(void) {
-    uint8_t current_layer = get_highest_layer(layer_state);
-    switch (current_layer) {
-        case 1:
-            rgb_matrix_set_color_all(RGB_GREEN);
-            break;
-        default:
-            break;
-    }
-    return false;
-}
-
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
@@ -117,4 +90,24 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
             // Do not select the hold action when another key is tapped.
             return false;
     }
+}
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    for (uint8_t i = led_min; i < led_max; i++) {
+        switch(get_highest_layer(layer_state|default_layer_state)) {
+            case _EN:
+                rgb_matrix_set_color(i, RGB_RED);
+                break;
+            case _RU:
+                rgb_matrix_set_color(i, RGB_GREEN);
+                break;
+            case _KBD :
+                rgb_matrix_set_color(i, RGB_PURPLE);
+                break;
+            default:
+                rgb_matrix_set_color(i, RGB_OFF);
+                break;
+        }
+    }
+    return false;
 }
