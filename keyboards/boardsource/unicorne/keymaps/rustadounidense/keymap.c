@@ -41,8 +41,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
   // -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
   [_NAV] = LAYOUT_split_3x6_3(
-    KC_NO,          KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,            /**/  KC_HOME,                LGUI(KC_LEFT),        KC_UP,                LGUI(KC_RIGHT),     KC_PAGE_UP,           KC_NO,
-    KC_NO,          KC_LGUI,            KC_LOPT,            KC_LCTL,            KC_LSFT,            KC_NO,                  KC_END,                 KC_LEFT,              KC_DOWN,              KC_RIGHT,           KC_PGDN,              KC_NO,
+    KC_NO,          KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,            /**/  KC_HOME,                LGUI(KC_LEFT),        KC_UP,                LGUI(KC_RIGHT),     KC_PAGE_UP,           KC_NO,22222
+    KC_NO,          KC_LGUI,            KC_LOPT,            KC_LCTL,            KC_LSFT,            KC_NO,                  KC_END,                 KC_LEFT,              KC_DOWN,              KC_RIGHT,           KC_PGDN,              OSM(MOD_HYPR),
     KC_NO,          KC_NO,              KC_NO,              KC_NO,              KC_NO,              KC_NO,                  KC_NO,                  LGUI(KC_LBRC),        KC_NO,                LGUI(KC_RBRC),      KC_NO,                KC_NO,
                                                             KC_TRNS,            KC_SPACE,           KC_TAB,                 KC_TRNS,                KC_TRNS,              KC_TRNS
   ),
