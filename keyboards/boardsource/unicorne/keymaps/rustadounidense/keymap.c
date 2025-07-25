@@ -35,10 +35,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // =============================================================================================================================================================================================================================================================
   [_NUM] = LAYOUT_split_3x6_3(
     LCTL(KC_6),     LCTL(KC_1),             LCTL(KC_2),             LCTL(KC_3),             LCTL(KC_4),         LCTL(KC_5),       /**/  KC_PLUS,                KC_7,                 KC_8,                 KC_9,               KC_MINUS,               KC_EQUAL,
-    KC_CAPS,        OSM(MOD_LGUI),          OSM(MOD_LALT),          OSM(MOD_LCTL),          OSM(MOD_LSFT),      KC_NO,            /**/  KC_ASTR,                KC_1,                 KC_2,                 KC_3,               KC_SLASH,               KC_BSLS,
-    KC_NO,          OSM(MOD_HYPR),          KC_NO,                  KC_NO,                  KC_NO,              KC_NO,            /**/  KC_PIPE,                KC_4,                 KC_5,                 KC_6,               KC_UNDS,                KC_NO,
+    KC_CAPS,        OSM(MOD_LGUI),          OSM(MOD_LALT),          OSM(MOD_LCTL),          OSM(MOD_LSFT),      KC_NO,            /**/  KC_DOT,                 KC_1,                 KC_2,                 KC_3,               KC_ASTR,                KC_NO,
+    KC_NO,          OSM(MOD_HYPR),          KC_NO,                  KC_NO,                  KC_NO,              KC_NO,            /**/  KC_BSLS,                KC_4,                 KC_5,                 KC_6,               KC_SLASH,               KC_NO,
                                                                     // -------------------------------------------------------------------------------------------------------------------- //
-                                                                    KC_NO,                  KC_NO,              KC_NO,            /**/  KC_DOT,                 KC_0,                 KC_COMMA
+                                                                    KC_NO,                  KC_NO,              KC_NO,            /**/  KC_TRNS,                LT(_NAV,KC_0),        KC_TRNS
   ),
   // =============================================================================================================================================================================================================================================================
   [_SYM] = LAYOUT_split_3x6_3(
