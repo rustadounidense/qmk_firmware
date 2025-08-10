@@ -43,7 +43,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // =============================================================================================================================================================================================================================================================
   [_SYM] = LAYOUT_split_3x6_3(
     KC_NO,          KC_NO,                  KC_NO,                  KC_NO,                  KC_NO,              KC_NO,            /**/  KC_NO,                  KC_NO,                KC_LBRC,              KC_RBRC,            KC_NO,                  KC_NO,
-    KC_NO,          KC_LGUI,                KC_LOPT,                KC_LCTL,                KC_LSFT,            KC_NO,            /**/  KC_DOT,                 KC_LPRN,              KC_RPRN,              KC_LCBR,            KC_RCBR,                KC_NO,
+    KC_NO,          KC_LGUI,                KC_LOPT,                KC_LCTL,                KC_LSFT,            KC_NO,            /**/  KC_DOT,                 KC_LPRN,              KC_LCBR,              KC_RCBR,            KC_RPRN,                KC_NO,
     KC_NO,          KC_NO,                  KC_NO,                  KC_NO,                  KC_NO,              KC_NO,            /**/  KC_BSLS,                KC_NO,                KC_LABK,              KC_RABK,            KC_NO,                  KC_NO,
                                                                     // -------------------------------------------------------------------------------------------------------------------- //
                                                                     KC_TRNS,                KC_TRNS,            KC_TRNS,          /**/  KC_TRNS,                KC_TRNS,              KC_TRNS
