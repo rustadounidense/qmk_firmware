@@ -93,7 +93,6 @@ bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, u
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
-            return 120;
         case MT(MOD_RSFT, KC_J):
             return 100;
 //        case MT(MOD_LGUI, KC_A):
