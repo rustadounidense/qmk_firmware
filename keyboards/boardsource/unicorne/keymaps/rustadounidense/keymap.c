@@ -80,30 +80,41 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 };
 #endif // defined(ENCODER_ENABLE) && defined(ENCODER_MAP_ENABLE)
 
+bool get_chordal_hold(uint16_t tap_hold_keycode, keyrecord_t* tap_hold_record, uint16_t other_keycode, keyrecord_t* other_record) {
+    switch (tap_hold_keycode) {
+        case MT(MOD_LSFT, KC_F):
+        case MT(MOD_RSFT, KC_J):
+            return false;
+        default:
+            return true;
+    }
+}
+
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case MT(MOD_LSFT, KC_F):
+            return 120;
         case MT(MOD_RSFT, KC_J):
-            return 140;
-        case MT(MOD_LGUI, KC_A):
-        case MT(MOD_RGUI, KC_QUOTE):
-            return 170;
+            return 100;
+//        case MT(MOD_LGUI, KC_A):
+//        case MT(MOD_RGUI, KC_QUOTE):
+//            return 160;
         default:
             return TAPPING_TERM;
     }
 }
 
-bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case MT(MOD_LSFT, KC_F):
-        case MT(MOD_RSFT, KC_J):
-            // Immediately select the hold action when another key is tapped.
-            return true;
-        default:
-            // Do not select the hold action when another key is tapped.
-            return false;
-    }
-}
+//bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+//    switch (keycode) {
+//        case MT(MOD_LSFT, KC_F):
+//        case MT(MOD_RSFT, KC_J):
+//            // Immediately select the hold action when another key is tapped.
+//            return true;
+//        default:
+//            // Do not select the hold action when another key is tapped.
+//            return false;
+//    }
+//}
 
 bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     for (uint8_t i = led_min; i < led_max; i++) {
@@ -124,7 +135,6 @@ bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
     }
     return false;
 }
-
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
