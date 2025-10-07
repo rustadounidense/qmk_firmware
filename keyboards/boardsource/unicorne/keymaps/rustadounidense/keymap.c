@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM = LAYOUT(
   // Left Hand Alphas
   'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
-  'L', '*', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
+  'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
   'L', 'L', 'L', 'L', 'L', 'L', 'R', 'R', 'R', 'R', 'R', 'R',
                  '*', '*', '*', '*', '*', '*'
 );
@@ -90,16 +90,9 @@ const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LT(_NAV,KC_BSPC):
-            return 100;
-        case LT(_NUM,KC_SPACE):
-            return 140;
         case MT(MOD_LSFT, KC_F):
         case MT(MOD_RSFT, KC_J):
-            return 140;
-       case MT(MOD_LGUI, KC_A):
-            return 120;
-       case MT(MOD_RGUI, KC_QUOTE):
+        case MT(MOD_LGUI, KC_A):
             return 140;
         default:
             return TAPPING_TERM;
