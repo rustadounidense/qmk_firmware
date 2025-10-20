@@ -38,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_CAPS,        OSM(MOD_LGUI),          OSM(MOD_LALT),          OSM(MOD_LCTL),          OSM(MOD_LSFT),      KC_NO,            /**/  KC_ASTR,                KC_1,                 KC_2,                 KC_3,               KC_PLUS,                KC_NO,
     KC_NO,          OSM(MOD_HYPR),          KC_NO,                  KC_NO,                  KC_NO,              KC_NO,            /**/  KC_BSLS,                KC_4,                 KC_5,                 KC_6,               KC_SLASH,               KC_NO,
                                                                     // -------------------------------------------------------------------------------------------------------------------- //
-                                                                    KC_NO,                  KC_NO,              KC_NO,            /**/  KC_COMMA,                 LT(_NAV,KC_0),        KC_DOT
+                                                                    KC_NO,                  KC_NO,              KC_NO,            /**/  KC_DOT,                 LT(_NAV,KC_0),        KC_COMMA
   ),
   // =============================================================================================================================================================================================================================================================
   [_SYM] = LAYOUT_split_3x6_3(
@@ -93,8 +93,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case MT(MOD_LSFT, KC_F):
         case MT(MOD_RSFT, KC_J):
             return 140;
-        case MT(MOD_LGUI, KC_A):
-            return 130;
         default:
             return TAPPING_TERM;
     }
